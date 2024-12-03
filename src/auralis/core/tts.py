@@ -43,7 +43,7 @@ class TTS:
         from auralis.models.registry import MODEL_REGISTRY
 
         try:
-            config_path = hf_hub_download(repo_id=model_name_or_path, filename='config.json')
+            config_path = hf_hub_download(repo_id=model_name_or_path, filename='config.json', **kwargs)
             with open(config_path, 'r') as f:
                 config = json.load(f)
             kwargs['max_concurrency'] = self.concurrency
